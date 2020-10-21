@@ -2,6 +2,136 @@
   "matches": [
     {
       "platformId": "EUW1",
+      "gameId": 4881813843,
+      "champion": 68,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603308478817,
+      "role": "DUO_SUPPORT",
+      "lane": "TOP"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4881798793,
+      "champion": 9,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603307456188,
+      "role": "DUO_SUPPORT",
+      "lane": "NONE"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4881703972,
+      "champion": 106,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603305431145,
+      "role": "DUO_SUPPORT",
+      "lane": "TOP"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4881620157,
+      "champion": 6,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603304271872,
+      "role": "DUO_SUPPORT",
+      "lane": "NONE"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4880027883,
+      "champion": 89,
+      "queue": 400,
+      "season": 13,
+      "timestamp": 1603223370784,
+      "role": "DUO_SUPPORT",
+      "lane": "BOTTOM"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4880030843,
+      "champion": 240,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603221334943,
+      "role": "DUO_SUPPORT",
+      "lane": "NONE"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4878736579,
+      "champion": 89,
+      "queue": 400,
+      "season": 13,
+      "timestamp": 1603142919993,
+      "role": "DUO_SUPPORT",
+      "lane": "BOTTOM"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4878629779,
+      "champion": 89,
+      "queue": 400,
+      "season": 13,
+      "timestamp": 1603140680235,
+      "role": "DUO_SUPPORT",
+      "lane": "BOTTOM"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4878345804,
+      "champion": 57,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603133160866,
+      "role": "DUO_SUPPORT",
+      "lane": "NONE"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4878279198,
+      "champion": 89,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603131491172,
+      "role": "NONE",
+      "lane": "JUNGLE"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4878274466,
+      "champion": 427,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603130019347,
+      "role": "DUO_SUPPORT",
+      "lane": "NONE"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4878030238,
+      "champion": 1,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603128496802,
+      "role": "DUO_SUPPORT",
+      "lane": "NONE"
+    },
+    {
+      "platformId": "EUW1",
+      "gameId": 4878063876,
+      "champion": 240,
+      "queue": 450,
+      "season": 13,
+      "timestamp": 1603126528200,
+      "role": "DUO_SUPPORT",
+      "lane": "TOP"
+    },
+    {
+      "platformId": "EUW1",
       "gameId": 4876493909,
       "champion": 75,
       "queue": 450,
@@ -869,139 +999,9 @@
       "timestamp": 1601572691088,
       "role": "NONE",
       "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4845431454,
-      "champion": 120,
-      "queue": 400,
-      "season": 13,
-      "timestamp": 1601555620245,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4844825178,
-      "champion": 19,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601500607191,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4844707773,
-      "champion": 33,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601494652251,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4844681825,
-      "champion": 113,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601492651885,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4844460364,
-      "champion": 20,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601488595843,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4844434247,
-      "champion": 98,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601486324516,
-      "role": "SOLO",
-      "lane": "TOP"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4844333833,
-      "champion": 120,
-      "queue": 400,
-      "season": 13,
-      "timestamp": 1601482248087,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4844171735,
-      "champion": 59,
-      "queue": 400,
-      "season": 13,
-      "timestamp": 1601472795608,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4843174864,
-      "champion": 20,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601415280543,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4843008240,
-      "champion": 33,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601412290278,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4842759866,
-      "champion": 33,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601406525073,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4842480414,
-      "champion": 33,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601403801786,
-      "role": "NONE",
-      "lane": "JUNGLE"
-    },
-    {
-      "platformId": "EUW1",
-      "gameId": 4842491026,
-      "champion": 98,
-      "queue": 440,
-      "season": 13,
-      "timestamp": 1601400809935,
-      "role": "SOLO",
-      "lane": "TOP"
     }
   ],
   "startIndex": 0,
   "endIndex": 100,
-  "totalGames": 155
+  "totalGames": 168
 }

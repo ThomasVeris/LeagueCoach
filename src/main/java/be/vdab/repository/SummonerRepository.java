@@ -26,7 +26,7 @@ public class SummonerRepository {
             HttpEntity entitySummonerInfo = httpResponse.getEntity();
             if (entitySummonerInfo != null) {
                 Path summonerFolder = Paths.get("./src/main/resources/json/" + concatenatedAccountName);
-                Path newPath = Files.createDirectory(summonerFolder);
+                Path newPath = Files.createDirectories(summonerFolder);
                 try (InputStream inputStream = entitySummonerInfo.getContent()) {
                     FileOutputStream fileOutputStream = new FileOutputStream(
                             "./src/main/resources/json/" + concatenatedAccountName + "/SummonerInfo.json");

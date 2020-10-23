@@ -5,6 +5,8 @@ import com.jayway.jsonpath.JsonPath;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GetMatchDataCommand {
     public static int getParticipantId(String concatenatedAccountName, int matchIndex) throws FileNotFoundException {
@@ -23,7 +25,27 @@ public class GetMatchDataCommand {
         return participantId + 1;
     }
 
-    public void getMatchData(String concatenatedAccountName, int matchIndex){
+    public static Map<String, Number> getMatchData(String concatenatedAccountName, int matchIndex, int participantId) throws FileNotFoundException {
+        String matchJson = "./src/main/resources/json/" + concatenatedAccountName +  "/Match" + matchIndex + ".json";
+        Object matchObj = new JsonParser().parse(new FileReader(matchJson));
+        Map<String, Number> participantKDA = new HashMap<>();
+
+        String jsonKills = JsonPath.read(matchObj, "$.participants[" + participantId + "].stats.kills").toString();
+        int participantKills = Integer.parseInt(jsonKills);
+        participantKDA.put("Kills: ", participantKills);
+
+        String jsonDeaths = JsonPath.read(matchObj, "$.participants[" + participantId + "].stats.deaths").toString();
+        int participantDeaths = Integer.parseInt(jsonDeaths);
+        participantKDA.put("Deaths: ", participantDeaths);
+
+        String jsonAssists = JsonPath.read(matchObj, "$.participants[" + participantId + "].stats.assists").toString();
+        int participantAssists = Integer.parseInt(jsonAssists);
+        participantKDA.put("Assists: ", participantAssists);
+
+        float participantKDARatio = (participantKills + participantAssists) / (float) participantDeaths;
+        participantKDA.put("KDA Ratio ", participantKDARatio);
+
+        return participantKDA;
 
     }
 }

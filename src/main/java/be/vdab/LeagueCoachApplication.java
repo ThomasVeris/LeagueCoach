@@ -10,10 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
 import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import static be.vdab.commands.GetMatchCommand.getMatchIndex;
 import static be.vdab.commands.GetMatchDataCommand.getParticipantId;
+import static be.vdab.commands.GetMatchDataCommand.getMatchData;
 import static be.vdab.commands.GetSummonerNameCommand.enterSummonerName;
 import static be.vdab.repository.MatchListRepository.getMatchListBySummoner;
 import static be.vdab.repository.MatchRepository.getMatchByID;
@@ -56,6 +59,9 @@ public class LeagueCoachApplication {
         int participantId = getParticipantId(accountName, matchId);
         System.out.println("The participant ID of the given summoner during this match was: ");
         System.out.println(participantId);
+
+        Map<String, Number> KDA =  new HashMap<>();
+        System.out.println(KDA = getMatchData(accountName, matchId, participantId - 1));
     }
 
 

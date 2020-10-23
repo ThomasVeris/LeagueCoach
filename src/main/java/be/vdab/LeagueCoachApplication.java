@@ -13,6 +13,7 @@ import java.util.EnumSet;
 import java.util.Set;
 
 import static be.vdab.commands.GetMatchCommand.getMatchIndex;
+import static be.vdab.commands.GetMatchDataCommand.getParticipantId;
 import static be.vdab.commands.GetSummonerNameCommand.enterSummonerName;
 import static be.vdab.repository.MatchListRepository.getMatchListBySummoner;
 import static be.vdab.repository.MatchRepository.getMatchByID;
@@ -47,9 +48,14 @@ public class LeagueCoachApplication {
 
         String accountName = enterSummonerName();
         int matchId = getMatchIndex();
+
         getSummonerInfo(accountName);
         getMatchListBySummoner(accountName);
         getMatchByID(accountName, matchId);
+
+        int participantId = getParticipantId(accountName, matchId);
+        System.out.println("The participant ID of the given summoner during this match was: ");
+        System.out.println(participantId);
     }
 
 

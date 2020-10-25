@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetMatchDataCommand {
+public class GetMatchData {
     public static int getParticipantId(String concatenatedAccountName, int matchIndex) throws FileNotFoundException {
         String summonerJson = "./src/main/resources/json/" + concatenatedAccountName +  "/SummonerInfo.json";
         Object accountIdObj = new JsonParser().parse(new FileReader(summonerJson));
@@ -18,7 +18,8 @@ public class GetMatchDataCommand {
         for (participantId = 0; participantId < 10; participantId++) {
             String matchJson = "./src/main/resources/json/" + concatenatedAccountName +  "/Match" + matchIndex + ".json";
             Object matchObj = new JsonParser().parse(new FileReader(matchJson));
-            String participantAccountId = JsonPath.read(matchObj, "$.participantIdentities[" + participantId + "].player.currentAccountId").toString().replace("\"", "");
+            String participantAccountId = JsonPath.read(matchObj, "$.participantIdentities[" + participantId
+                    + "].player.currentAccountId").toString().replace("\"", "");
             if (participantAccountId.equals(accountID)){
                 break;}
         }
@@ -28,24 +29,27 @@ public class GetMatchDataCommand {
     public static Map<String, Number> getMatchData(String concatenatedAccountName, int matchIndex, int participantId) throws FileNotFoundException {
         String matchJson = "./src/main/resources/json/" + concatenatedAccountName +  "/Match" + matchIndex + ".json";
         Object matchObj = new JsonParser().parse(new FileReader(matchJson));
-        Map<String, Number> participantKDA = new HashMap<>();
+        Map<String, Number> participantStats = new HashMap<>();
 
         String jsonKills = JsonPath.read(matchObj, "$.participants[" + participantId + "].stats.kills").toString();
         int participantKills = Integer.parseInt(jsonKills);
-        participantKDA.put("Kills: ", participantKills);
+        participantStats.put("Kills", participantKills);
 
         String jsonDeaths = JsonPath.read(matchObj, "$.participants[" + participantId + "].stats.deaths").toString();
         int participantDeaths = Integer.parseInt(jsonDeaths);
-        participantKDA.put("Deaths: ", participantDeaths);
+        participantStats.put("Deaths", participantDeaths);
 
         String jsonAssists = JsonPath.read(matchObj, "$.participants[" + participantId + "].stats.assists").toString();
         int participantAssists = Integer.parseInt(jsonAssists);
-        participantKDA.put("Assists: ", participantAssists);
+        participantStats.put("Assists", participantAssists);
 
         float participantKDARatio = (participantKills + participantAssists) / (float) participantDeaths;
-        participantKDA.put("KDA Ratio ", participantKDARatio);
+        participantStats.put("KDA Ratio", participantKDARatio);
 
-        return participantKDA;
+
+
+
+        return participantStats;
 
     }
 }

@@ -1,72 +1,40 @@
 package be.vdab;
 
-import com.jayway.jsonpath.Configuration;
-import com.jayway.jsonpath.Option;
-import com.jayway.jsonpath.spi.json.GsonJsonProvider;
-import com.jayway.jsonpath.spi.json.JsonProvider;
-import com.jayway.jsonpath.spi.mapper.GsonMappingProvider;
-import com.jayway.jsonpath.spi.mapper.MappingProvider;
+import be.vdab.config.JsonPathConfig;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
-import java.util.EnumSet;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
-import static be.vdab.commands.GetMatchCommand.getMatchIndex;
-import static be.vdab.commands.GetMatchDataCommand.getParticipantId;
-import static be.vdab.commands.GetMatchDataCommand.getMatchData;
-import static be.vdab.commands.GetSummonerNameCommand.enterSummonerName;
+import static be.vdab.commands.UserInput.enterMatchIndex;
+import static be.vdab.commands.UserInput.enterSummonerName;
+import static be.vdab.commands.GetMatchData.getMatchData;
+import static be.vdab.commands.GetMatchData.getParticipantId;
 import static be.vdab.repository.MatchListRepository.getMatchListBySummoner;
 import static be.vdab.repository.MatchRepository.getMatchByID;
 import static be.vdab.repository.SummonerRepository.getSummonerInfo;
 
 @SpringBootApplication
 public class LeagueCoachApplication {
-
     public static void main(String[] args) throws IOException {
-        Configuration.setDefaults(new Configuration.Defaults() {
+        //Setting JsonPath provider to Gson, required for compatibility
+        JsonPathConfig.InitializeConfig();
 
-            private final JsonProvider jsonProvider = new GsonJsonProvider();
-            private final MappingProvider mappingProvider = new GsonMappingProvider();
-
-            @Override
-            public JsonProvider jsonProvider() {
-                return jsonProvider;
-            }
-
-            @Override
-            public MappingProvider mappingProvider() {
-                return mappingProvider;
-            }
-
-            @Override
-            public Set<Option> options() {
-                return EnumSet.noneOf(Option.class);
-            }
-        });
-
-
-
+        //User enters the player name and the specific match they want data from
         String accountName = enterSummonerName();
-        int matchId = getMatchIndex();
+        int matchId = enterMatchIndex();
 
         getSummonerInfo(accountName);
         getMatchListBySummoner(accountName);
         getMatchByID(accountName, matchId);
 
         int participantId = getParticipantId(accountName, matchId);
-        System.out.println("The participant ID of the given summoner during this match was: ");
-        System.out.println(participantId);
 
-        Map<String, Number> KDA =  new HashMap<>();
-        System.out.println(KDA = getMatchData(accountName, matchId, participantId - 1));
+        Map<String, Number> KDA = getMatchData(accountName, matchId, participantId - 1);
+
+        Number summonerKills = KDA.get("Kills");
+        System.out.println("This summoner achieved " + summonerKills + " kills this game.");
     }
-
-
-
-
 
 
 

@@ -11,7 +11,7 @@ import java.util.EnumSet;
 import java.util.Set;
 
 public interface JsonPathConfig {
-    static void InitializeConfig(){
+    static void initializeConfig(){
         Configuration.setDefaults(new Configuration.Defaults() {
 
             private final JsonProvider jsonProvider = new GsonJsonProvider();

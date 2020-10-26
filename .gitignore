@@ -7,6 +7,7 @@ target/
 mvnw
 mvnw.cmd
 AccessKey.java
+src/main/resources/json
 
 ### STS ###
 .apt_generated

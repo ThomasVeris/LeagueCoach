@@ -18,21 +18,22 @@ import static be.vdab.repository.SummonerRepository.getSummonerInfo;
 public class LeagueCoachApplication {
     public static void main(String[] args) throws IOException {
         //Setting JsonPath provider to Gson, required for compatibility
-        JsonPathConfig.InitializeConfig();
+        JsonPathConfig.initializeConfig();
 
         //User enters the player name and the specific match they want data from
         String accountName = enterSummonerName();
         int matchId = enterMatchIndex();
 
+        //Grabbing data from APIs and writing to generated JSON files in dynamically created directories
         getSummonerInfo(accountName);
         getMatchListBySummoner(accountName);
         getMatchByID(accountName, matchId);
 
         int participantId = getParticipantId(accountName, matchId);
 
-        Map<String, Number> KDA = getMatchData(accountName, matchId, participantId - 1);
+        Map<String, Number> playerStats = getMatchData(accountName, matchId, participantId - 1);
 
-        Number summonerKills = KDA.get("Kills");
+        Number summonerKills = playerStats.get("Kills");
         System.out.println("This summoner achieved " + summonerKills + " kills this game.");
     }
 

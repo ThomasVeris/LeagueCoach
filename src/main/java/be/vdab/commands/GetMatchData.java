@@ -12,7 +12,7 @@ import static be.vdab.domain.enums.Directory.JSON_DIRECTORY;
 
 public class GetMatchData {
     public static int getParticipantId(String concatenatedAccountName, int matchIndex) throws FileNotFoundException {
-        String summonerJson = JSON_DIRECTORY + concatenatedAccountName +  "/SummonerInfo.json";
+        String summonerJson = JSON_DIRECTORY.getPath() + concatenatedAccountName +  "/SummonerInfo.json";
         Object accountIdObj = JsonParser.parseReader(new FileReader(summonerJson));
         String accountID = JsonPath.read(accountIdObj, "$.accountId")
                                    .toString()
@@ -20,7 +20,7 @@ public class GetMatchData {
         int participantId;
 
         for (participantId = 0; participantId < 10; participantId++) {
-            String matchJson = JSON_DIRECTORY + concatenatedAccountName +  "/Match" + matchIndex + ".json";
+            String matchJson = JSON_DIRECTORY.getPath() + concatenatedAccountName +  "/Match" + matchIndex + ".json";
             Object matchObj = JsonParser.parseReader(new FileReader(matchJson));
             String participantAccountId = JsonPath
                     .read(matchObj, "$.participantIdentities[" + participantId + "].player.currentAccountId")
@@ -35,7 +35,7 @@ public class GetMatchData {
     public static Map<String, Number> getMatchData(String concatenatedAccountName, int matchIndex, int participantId)
             throws FileNotFoundException {
 
-        String matchJson = JSON_DIRECTORY + concatenatedAccountName +  "/Match" + matchIndex + ".json";
+        String matchJson = JSON_DIRECTORY.getPath() + concatenatedAccountName +  "/Match" + matchIndex + ".json";
         Object matchObj = JsonParser.parseReader(new FileReader(matchJson));
         Map<String, Number> participantStats = new HashMap<>();
 

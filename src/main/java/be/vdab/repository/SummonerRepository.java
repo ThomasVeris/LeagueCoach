@@ -22,17 +22,17 @@ public class SummonerRepository {
     public static void getSummonerInfo(String concatenatedAccountName) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet summonerInfo = new HttpGet(
-                SUMMONER_BY_NAME + concatenatedAccountName);
-        summonerInfo.setHeader("X-Riot-Token", String.valueOf(ACCESS_KEY));
+                SUMMONER_BY_NAME.getUrl() + concatenatedAccountName);
+        summonerInfo.setHeader("X-Riot-Token", ACCESS_KEY.getKeyValue());
 
         try (CloseableHttpResponse httpResponse = httpClient.execute(summonerInfo)) {
             HttpEntity entitySummonerInfo = httpResponse.getEntity();
             if (entitySummonerInfo != null) {
-                Path summonerFolder = Paths.get(JSON_DIRECTORY + concatenatedAccountName);
+                Path summonerFolder = Paths.get(JSON_DIRECTORY.getPath() + concatenatedAccountName);
                 Path newPath = Files.createDirectories(summonerFolder);
                 try (InputStream inputStream = entitySummonerInfo.getContent()) {
                     FileOutputStream fileOutputStream = new FileOutputStream(
-                            JSON_DIRECTORY + concatenatedAccountName + "/SummonerInfo.json");
+                            JSON_DIRECTORY.getPath() + concatenatedAccountName + "/SummonerInfo.json");
                     IOUtils.copy(inputStream, fileOutputStream);
                 }
             }

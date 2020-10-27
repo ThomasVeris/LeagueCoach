@@ -21,7 +21,7 @@ import static be.vdab.domain.enums.RiotURL.MATCH_LIST_BY_ACCOUNT_ID;
 public class MatchListRepository {
     public static void getMatchListBySummoner(String concatenatedAccountName) throws IOException {
 
-        String jsonFile = JSON_DIRECTORY + concatenatedAccountName +  "/SummonerInfo.json";
+        String jsonFile = JSON_DIRECTORY.getPath() + concatenatedAccountName +  "/SummonerInfo.json";
         Object obj = JsonParser.parseReader(new FileReader(jsonFile));
         String accountID = JsonPath.read(obj, "$.accountId").toString().replace("\"", "");
 
@@ -34,7 +34,7 @@ public class MatchListRepository {
             if (entityMatches != null) {
                 try (InputStream inputStream = entityMatches.getContent()) {
                     FileOutputStream fileOutputStream = new FileOutputStream(
-                            JSON_DIRECTORY + concatenatedAccountName + "/MatchList.json");
+                            JSON_DIRECTORY.getPath() + concatenatedAccountName + "/MatchList.json");
                     IOUtils.copy(inputStream, fileOutputStream);
                 }
             }

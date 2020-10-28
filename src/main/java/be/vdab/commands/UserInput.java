@@ -3,6 +3,9 @@ package be.vdab.commands;
 import java.util.Scanner;
 
 public class UserInput {
+    private UserInput() {
+    }
+
     public static int enterMatchIndex(){
         System.out.println("Please enter which match you want to see, index is 0-100.");
         Scanner inputScanner = new Scanner(System.in);

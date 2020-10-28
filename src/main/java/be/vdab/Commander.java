@@ -8,8 +8,8 @@ public class Commander {
         //GET_KDA("Get KDA of this player", new Command()),
 
 
-        private String commandDescription;
-        private Command command;
+        private final String commandDescription;
+        private final Command command;
 
         Commands(String commandDescription, Command command) {
             this.commandDescription = commandDescription;

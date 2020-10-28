@@ -11,6 +11,9 @@ import java.util.Map;
 import static be.vdab.domain.enums.Directory.JSON_DIRECTORY;
 
 public class GetMatchData {
+    private GetMatchData() {
+    }
+
     public static int getParticipantId(String concatenatedAccountName, int matchIndex) throws FileNotFoundException {
         String summonerJson = JSON_DIRECTORY.getPath() + concatenatedAccountName +  "/SummonerInfo.json";
         Object accountIdObj = JsonParser.parseReader(new FileReader(summonerJson));

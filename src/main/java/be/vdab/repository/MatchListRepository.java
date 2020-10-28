@@ -19,6 +19,9 @@ import static be.vdab.domain.enums.Directory.JSON_DIRECTORY;
 import static be.vdab.domain.enums.RiotURL.MATCH_LIST_BY_ACCOUNT_ID;
 
 public class MatchListRepository {
+    private MatchListRepository() {
+    }
+
     public static void getMatchListBySummoner(String concatenatedAccountName) throws IOException {
 
         String jsonFile = JSON_DIRECTORY.getPath() + concatenatedAccountName +  "/SummonerInfo.json";

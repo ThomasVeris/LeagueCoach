@@ -19,6 +19,9 @@ import static be.vdab.domain.enums.Directory.JSON_DIRECTORY;
 import static be.vdab.domain.enums.RiotURL.SUMMONER_BY_NAME;
 
 public class SummonerRepository {
+    private SummonerRepository() {
+    }
+
     public static void getSummonerInfo(String concatenatedAccountName) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet summonerInfo = new HttpGet(

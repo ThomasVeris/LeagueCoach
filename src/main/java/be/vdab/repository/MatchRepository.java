@@ -20,6 +20,9 @@ import static be.vdab.domain.enums.Directory.JSON_DIRECTORY;
 import static be.vdab.domain.enums.RiotURL.MATCH_BY_GAME_ID;
 
 public class MatchRepository {
+    private MatchRepository() {
+    }
+
     public static void getMatchByID(String concatenatedAccountName, int matchIndex) throws IOException {
 
         String jsonFile = JSON_DIRECTORY.getPath() + concatenatedAccountName +  "/MatchList.json";
